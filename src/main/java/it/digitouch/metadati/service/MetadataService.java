@@ -17,7 +17,7 @@ public class MetadataService {
     private MetadataRepository repository;
 
     public void processFiles(String directoryPath) {
-        List<File> files = FileScanner.getFilesFromFolder(directoryPath);
+        List<File> files = FileScanner.scannerFolder(directoryPath);
 
         if (!files.isEmpty()) {
             for (File file : files) {
