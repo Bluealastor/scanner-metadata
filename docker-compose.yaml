@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+#    costruisci
+    build: .
+    container_name: springboot_app
+    ports:
+      - "8080:8080"
+    volumes:
+      - /c/Users/christian.esposito/Desktop/DOCS/JavaDocs/Project/metadati/src/main/resources/Metadati:/app/data  # Monta la cartella del tuo PC nel container
+    environment:
+      - UPLOAD_DIR=/app/data
+      - MONGO_URI=mongodb://mongo:27017/metadati
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27018:27017"
+#    i volumi servono per la persistenza dei dati
+#    se facciamo docker-compose down i dati rimangono
+    volumes:
+      - mongo_data:/data/db
+
+
+volumes:
+  mongo_data:
+
+
