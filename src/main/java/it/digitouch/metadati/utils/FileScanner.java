@@ -10,7 +10,7 @@ public class FileScanner {
 
         // Se directoryPath è nullo o vuoto, imposta un valore di default
         if (directoryPath == null || directoryPath.isEmpty()) {
-            directoryPath = "C:/Users/tuo_utente/Metadati"; // Modifica con il tuo percorso
+            directoryPath = "src/main/resources/Metadati"; // Modifica con il tuo percorso
             System.out.println("Percorso non specificato. Uso il percorso di default: " + directoryPath);
         }
 
